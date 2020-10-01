@@ -1,0 +1,20 @@
+<table id="dynamicTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+	<thead>
+	    {{ include('financial_movements/_head.html.twig', {th_class: 'class="th-sm"'}) }}
+	</thead>
+	<tbody>
+        {% for financialMovement in financialMovements %}
+            <tr class="table-row">
+                <td>{{ financialMovement.id }}</td>
+                <td>{{ financialMovement.wallet.id |default('')}}</td>
+                <td>{{ financialMovement.bookingDate|date('Y-m-d h:i:s') }}</td>
+                <td>{{ financialMovement.valueDate|date('Y-m-d h:i:s') }}</td>
+                <td>{{ financialMovement.amount.value }} {{ financialMovement.amount.currency }}</td>
+                <td>{{ financialMovement.description }}</td>
+            </tr>
+        {% endfor %}
+	</tbody>
+	<tfoot>
+		{{ include('financial_movements/_head.html.twig', {th_class: ''}) }}
+	</tfoot>	
+</table>

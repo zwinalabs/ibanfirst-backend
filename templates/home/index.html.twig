@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home iBanFirst{% endblock %}
+
+{% block body %}
+<div class="alert alert-block alert-success">
+										<button type="button" class="close" data-dismiss="alert">
+											<i class="ace-icon fa fa-times"></i>
+										</button>
+
+										<i class="ace-icon fa fa-check green"></i>
+										{{ "Une application de consultation de comptes et de mouvements financiers par
+	API. Vous pouvez utiliser que les endpoints « wallets » et « financialMovements »."|trans }}
+	
+</div>
+
+<div class="example-wrapper">
+    <h1>Hello! ✅</h1><br>
+    <h2>Test – développeur back-end</h2><br>
+    <ul>
+        <li>
+		<b>Sujet</b><br>
+		Le but est de réaliser une application de consultation de comptes et de mouvements financiers par
+		API. Pour ce faire, vous devrez utiliser l’API iBanFirst détaillée ci-dessous. Vous n’aurez besoin que
+		d’utiliser les endpoints « wallets » et « financialMovements ».
+		</li>
+<li>
+		<b>Livrable</b><br>
+
+Le livrable attendu contient :<br>
+- un repo GIT avec les sources documentées, testées et délivrables en production
+- un fichier README avec les instructions de build et d’exécution
+Le langage utilisé, le framework, l’implémentation et l’UX sont libres.</li>
+ <li>
+		<b>Ressources</b><br>
+API iBanFirst :<br>
+-Documentation: https://api.ibanfirst.com/APIDocumentation/<br>
+-Racine API: https://sandbox2.ibanfirst.com/api<br>
+-Login: a00720d<br>
+-Pass: 6KPPczga4H6pR+ZeMj+iQ5UpB0foUoO3hQWOjUiYkESU3HGLfXwce8He7TfwY/k4c3hAcFViIFfKUC+GwcbYsQ==<br>
+</li>
+    </ul>
+</div>
+{% endblock %}

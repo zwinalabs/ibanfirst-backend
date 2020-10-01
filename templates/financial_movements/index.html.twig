@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ 'iBanFirst - Financial Movements List'|trans }} {% endblock %}
+{% block stylesheets %}
+	<link href="{{ asset('assets/css/datatables.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block breadcrumb %}{{ "Financial Movements"|trans }}{% endblock %}
+{% block subtitle %}
+                {{ "Financial Movements Listing"|trans }}
+{% endblock %}
+{% block navList %}
+  <ul class="nav nav-list">
+    <li >
+      <a href="/">
+        <i class="menu-icon fa fa-tachometer"></i>
+        <span class="menu-text"> Dashboard </span>
+      </a>
+
+      <b class="arrow"></b>
+    </li>
+    <li class="">
+      <a href="/wallets">
+        <i class="menu-icon fa fa-credit-card"></i>
+        <span class="menu-text"> Wallets </span>
+      </a>
+
+      <b class="arrow"></b>
+    </li>
+    <li class="active">
+      <a href="/financial-movements">
+        <i class="menu-icon fa  fa-exchange"></i>
+        <span class="menu-text"> Financial Movements </span>
+      </a>
+
+      <b class="arrow"></b>
+    </li
+  </ul>
+{% endblock %}
+{% block body %}
+    <div class="row">
+      <div class="col-xs-12">
+        <h3 class="header smaller lighter blue">Listing</h3>
+        <div class="clearfix">
+          <div class="pull-right tableTools-container"></div>
+        </div>
+        <div class="table-header">
+          {{ "Total Number of Financial Movements"|trans }} {{ financialMovements|length }}
+        </div>
+        <div>
+          {{ include('financial_movements/_list.html.twig', {financialMovements: financialMovements}) }}
+        </div>
+      </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <!-- basic scripts -->
+    <!--[if !IE]> -->
+    <script src="{{ asset('assets/js/jquery-2.1.4.min.js') }}"></script>
+    <!-- <![endif]-->
+    <!--[if IE]>
+<script src="{{ asset('assets/js/jquery-1.11.3.min.js') }}"></script>
+<![endif]-->
+    <script type="text/javascript">
+      if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    </script>
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="{{ asset('assets/js/datatables.min.js') }}"></script>
+    <!-- inline scripts related to this page -->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+		  $('#dynamicTable').DataTable({
+            "order": [[ 3, "desc" ]]
+          });
+          $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+{% endblock %}

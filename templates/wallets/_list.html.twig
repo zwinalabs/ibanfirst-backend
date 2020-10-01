@@ -1,0 +1,21 @@
+<table id="dynamicTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+	<thead>
+		{{ include('wallets/_head.html.twig', {th_class: 'class="th-sm"'}) }}
+	</thead>
+	<tbody>
+	  {% for wallet in wallets %}
+	      <tr>                          
+	        <td>{{ wallet.id }}</td>
+	        <td>{{ wallet.tag }}</td>                            
+	        <td>{{ wallet.currency }}</td>
+	        <td>{{ wallet.bookingAmount.value }} {{ wallet.bookingAmount.currency }}</td>
+	        <td>{{ wallet.valueAmount.value }} {{ wallet.valueAmount.currency }}</td>
+	        <td>{{ wallet.dateLastFinancialMovement|date('Y-m-d h:i:s') }}</td>
+	        <td><a href="{{ path('financial_movements',{'walletId':wallet.id}) }}">{{ wallet.financialMovements|length }}</a></td>
+	      </tr>
+	  {% endfor %}
+	</tbody>
+	<tfoot>
+	    {{ include('wallets/_head.html.twig', {th_class: ''}) }}
+	</tfoot>	
+</table>
