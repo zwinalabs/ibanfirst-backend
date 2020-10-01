@@ -1,8 +1,14 @@
 {
-    "name": "symfony/website-skeleton",
+    "name": "zwinalabs/ibanfirst-backend",
     "type": "project",
     "license": "MIT",
-    "description": "A skeleton to start a new Symfony website",
+    "description": "iBanFirst: Test – développeur back-end",
+    "authors": [
+        {
+            "name": "Kais Chrif",
+            "email": "kais.chrif.official@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=7.2.5",
         "ext-ctype": "*",
@@ -35,6 +41,7 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "nunomaduro/phpinsights": "^1.14",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
@@ -69,7 +76,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"
