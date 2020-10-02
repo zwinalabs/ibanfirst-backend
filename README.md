@@ -43,10 +43,15 @@ BASE_API_URL=https://sandbox2.ibanfirst.com/api
 ###< API iBanFirst Ressources ###
 ```
 
-Getting started
+Getting started with tests
 ------------
 
-To run the tests locally, we ran our test using "./bin/phpunit" command from the terminal. To restructure things a little bit and automate this command by adding it to the scripts section within the composer.json file. we have added the test command to the scripts section:
+To run the tests locally, we ran our test using  command from the terminal:
+```bash
+./bin/phpunit
+```
+
+To restructure things a little bit and automate this command by adding it to the scripts section within the composer.json file. we have added the test command to the scripts section:
 ```bash
 {
     ...
@@ -57,4 +62,23 @@ To run the tests locally, we ran our test using "./bin/phpunit" command from the
         ]
     }
 }
+```
+test command will be available as :
+```bash
+composer test
+```
+
+To automate tests and CI with CircleCI. we haved created ".circleci" folder and inside this folder, we create a file named config.yml to setup an automated CI pipeline using CircleCI.
+
+
+Run the Web application
+------------
+
+You can run the application locally using the following command:
+```bash
+php -S 127.0.0.1:8000 -t public/
+```
+or 
+```bash
+symfony server:start
 ```
