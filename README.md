@@ -34,3 +34,27 @@ php composer.phar install
 Configuration
 ------------
 
+To change the API url/user or password got to the environment variables locatedat ".env" files and check the "###> API iBanFirst Ressources ###" section:
+```bash
+###> API iBanFirst Ressources ###
+API_USERNAME=a00720d
+API_PASSWORD=6KPPczga4H6pR+ZeMj+iQ5UpB0foUoO3hQWOjUiYkESU3HGLfXwc...
+BASE_API_URL=https://sandbox2.ibanfirst.com/api
+###< API iBanFirst Ressources ###
+```
+
+Getting started
+------------
+
+To run the tests locally, we ran our test using "./bin/phpunit" command from the terminal. To restructure things a little bit and automate this command by adding it to the scripts section within the composer.json file. we have added the test command to the scripts section:
+```bash
+{
+    ...
+    "scripts": {
+        ...,
+        "test": [
+            "./bin/phpunit"
+        ]
+    }
+}
+```
