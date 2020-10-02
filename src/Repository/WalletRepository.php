@@ -78,7 +78,7 @@ class WalletRepository
                 ->setDateLastFinancialMovement($date_last_movement);
 
             // get the wallet financial movement
-            $walletFinancialMouvmemnts = $this->getFinancialMovmentsByWallet($walet['id'], $financialMouvmemnts);
+            $walletFinancialMouvmemnts = $this->findFinancialMovmentsByWallet($walet['id'], $financialMouvmemnts);
             //  add wallet financial movement to current wallet
             foreach ($walletFinancialMouvmemnts as $walletFinancialMouvmemnt) {
                 $wallet_obj->addFinancialMovements($walletFinancialMouvmemnt);
@@ -100,7 +100,7 @@ class WalletRepository
     /**
     * @return FinancialMovments[] : return an array of FinancialMovements objects
     */
-    private function getFinancialMovmentsByWallet(string $wallet_id, array $financial_movements, $currencysRate = []): array
+    private function findFinancialMovmentsByWallet(string $wallet_id, array $financial_movements, $currencysRate = []): array
     {
         if (!isset($financial_movements['financialMovements']) or !is_array($financial_movements['financialMovements'])) {
             $this->logger->error("No 'financial movements' data received!");
